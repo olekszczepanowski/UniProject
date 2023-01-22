@@ -34,6 +34,7 @@ public class Frame extends JFrame {
         addWindowListener(exitListener);
         pack();
         setSize(1200, 800);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
