@@ -1,6 +1,7 @@
 package App;
 
 import Data.Connection;
+import Data.UserAccount;
 import Model.Admin;
 import Model.Doctor;
 import Model.Patient;
