@@ -26,7 +26,7 @@ public class Doctor extends Person implements Serializable {
         super();
         this.specialization = null;
         this.doctorId = 0;
-        this.opinions = null;
+        this.opinions = new ArrayList<>();
         this.averageOpinion = 0.0;
     }
 
