@@ -16,7 +16,7 @@ public class CalendarController {
     }
 
     public static void saveAppointment(int day, int month, int year, int time, Doctor doctor) {
-        Connection.getAppointments().add(new Appointment(LocalDate.of(year, month + 1, day), LocalTime.of(time, 0), doctor.getDoctorId(), PatientController.loggedPatient().getPersonalIdNumber()));
+        Connection.getAppointments().add(new Appointment(LocalDate.of(year, month, day), LocalTime.of(time, 0), doctor.getDoctorId(), PatientController.loggedPatient().getPersonalIdNumber()));
         JOptionPane.showMessageDialog(null, "Appointment signed correctly", "",
                 JOptionPane.INFORMATION_MESSAGE);
     }

@@ -18,7 +18,7 @@ public class PanelAdmin extends GeneralPanel {
 
     public PanelAdmin() throws IOException {
         for (int i = 0; i < DoctorController.getAllDoctors().size(); i++) {
-            ComboBoxDoctors.addItem(DoctorController.getAllDoctors().get(i).getFirstName() + " " + DoctorController.getAllDoctors().get(i).getSurname() + "\n Spetialization:" +
+            ComboBoxDoctors.addItem(DoctorController.getAllDoctors().get(i).getFirstName() + " " + DoctorController.getAllDoctors().get(i).getSurname() + "\n Specialization:" +
                     DoctorController.getAllDoctors().get(i).getSpecialization().getName());
         }
         for (int i = 0; i < PatientController.getAllPatients().size(); i++) {

@@ -53,12 +53,12 @@ public class WindowAppointmentByTime extends JPanel {
         }
     }
 
-    public static void createAndShowGui(String spetialization) throws IOException {
+    public static void createAndShowGui(String specialization) throws IOException {
         MainDialog = new JDialog();
         MainDialog.setTitle(frame.getTitle());
         MainDialog.setModal(true);
         MainDialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        MainDialog.getContentPane().add(new WindowAppointmentByTime(spetialization));
+        MainDialog.getContentPane().add(new WindowAppointmentByTime(specialization));
         MainDialog.pack();
         MainDialog.setLocationRelativeTo(null);
         MainDialog.setVisible(true);
