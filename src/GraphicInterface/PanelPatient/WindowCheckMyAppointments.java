@@ -15,7 +15,7 @@ public class WindowCheckMyAppointments extends JPanel {
 
     WindowCheckMyAppointments() {
         JPanel test = new JPanel();
-        test.setLayout(new GridLayout(PatientController.getAppointments(PatientController.loggedPatient()).size(), 1, -20, 0));
+        test.setLayout(new GridLayout(10, 1, -20, 0));
         test.setPreferredSize(new Dimension(400, Math.min(200, PatientController.getAppointments(PatientController.loggedPatient()).size() * 50)));
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setAutoscrolls(true);
@@ -32,6 +32,8 @@ public class WindowCheckMyAppointments extends JPanel {
             panel.setBorder(blackline);
             test.add(panel);
         }
+        for(int i=0;i<10-PatientController.getAppointments(PatientController.loggedPatient()).size();i++)
+            test.add(new JPanel());
         add(scrollFrame);
     }
 

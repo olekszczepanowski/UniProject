@@ -28,14 +28,17 @@ public class WindowAppointmentByTime extends JPanel {
                     + "Dr" + String.valueOf(DoctorController.getDoctorByID(appointment.getDoctorID()).getFirstName()) + " "
                     + DoctorController.getDoctorByID(appointment.getDoctorID()).getSurname() + "<html>");
             JButton ButtonData = new JButton("Book");
+            JPanel PanelData=new JPanel();
+            PanelData.setLayout(new GridLayout(1,3,0,0));
             JPanel PanelLabel = new JPanel();
             PanelLabel.setLayout(new BorderLayout());
             PanelLabel.add(LabelData);
             JPanel PanelButton = new JPanel();
             PanelButton.add(ButtonData);
-            test.add(PanelLabel);
-            test.add(new JPanel());
-            test.add(PanelButton);
+            PanelData.add(PanelLabel);
+            PanelData.add(new JPanel());
+            PanelData.add(PanelButton);
+            test.add(PanelData);
             ButtonData.addActionListener(e -> {
                 CalendarController.saveAppointment(appointment.getAppointmentDate().getDayOfMonth(), appointment.getAppointmentDate().getMonth().getValue(), appointment.getAppointmentDate().getYear(),
                         appointment.getAppointmentTime().getHour(), DoctorController.getDoctorByID(appointment.getDoctorID()));

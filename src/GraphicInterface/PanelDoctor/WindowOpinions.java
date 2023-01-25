@@ -14,7 +14,7 @@ public class WindowOpinions extends JPanel {
 
     public WindowOpinions() {
         JPanel test = new JPanel();
-        test.setLayout(new GridLayout(DoctorController.loggedDoctor().getOpinions().size(), 1, -20, 0));
+        test.setLayout(new GridLayout(20, 1, -20, 0));
         test.setPreferredSize(new Dimension(400, 2000));
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setAutoscrolls(true);
@@ -25,7 +25,7 @@ public class WindowOpinions extends JPanel {
         for (Opinion opinion : DoctorController.loggedDoctor().getOpinions()) {
             i++;
             JPanel panel = new JPanel();
-            panel.setLayout(new GridLayout(3, 1, 0, 0));
+            panel.setLayout(new GridLayout(3, 1, -100, 0));
             panel.add(new JLabel("Opinion nr: " + i));
             panel.add(new JLabel("Value: " + opinion.getValue()));
             String html = "<html><body style='width: %1spx'>%1s";
@@ -34,6 +34,8 @@ public class WindowOpinions extends JPanel {
             panel.setBorder(blackline);
             test.add(panel);
         }
+        for(int j=0;j<20-DoctorController.loggedDoctor().getOpinions().size();j++)
+            test.add(new JPanel());
         add(scrollFrame);
         if (DoctorController.loggedDoctor().getOpinions().size() == 0) {
             JOptionPane.showMessageDialog(null, "No opinions yet", "",

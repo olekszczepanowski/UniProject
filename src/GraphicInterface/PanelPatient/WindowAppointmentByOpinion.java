@@ -18,12 +18,12 @@ public class WindowAppointmentByOpinion extends JPanel {
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setLayout(new GridLayout(10, 1, 0, 0));
         test.setAutoscrolls(true);
-        test.setPreferredSize(new Dimension(400, 1200));
-        scrollFrame.setPreferredSize(new Dimension(400, 350));
+        test.setPreferredSize(new Dimension(500, 1200));
+        scrollFrame.setPreferredSize(new Dimension(500, 350));
         this.add(scrollFrame);
         for (Doctor doctor : SortingController.SortByOpinion(specialization)) {
             JPanel Paneldata = new JPanel();
-            JLabel LabelData = new JLabel("<html>Dr. " + doctor.getFirstName() + " " + doctor.getSurname() + "<br/> " + doctor.getAverageOpinion()+"<html>");
+            JLabel LabelData = new JLabel("<html>Dr " + doctor.getFirstName() + " " + doctor.getSurname() + "<br/> " + doctor.getAverageOpinion()+"<html>");
             JButton ButtonData = new JButton("Book");
             JPanel PanelLabel = new JPanel();
             PanelLabel.setLayout(new BorderLayout());
