@@ -66,14 +66,14 @@ public class SortByOpinion implements MakeAppointmentStrategy {
                 System.out.println("\nInvalid input");
                 return null;
             }
-        } else {
+        }
+        else {
             System.out.println("\nInvalid input");
             return null;
         }
     }
 
     public static class DoctorCompareOpinion implements Comparator<Doctor> {
-
         @Override
         public int compare(Doctor o1, Doctor o2) {
             return Double.compare(o2.getAverageOpinion(), o1.getAverageOpinion());

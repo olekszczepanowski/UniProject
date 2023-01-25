@@ -54,7 +54,6 @@ public class SortByTime implements MakeAppointmentStrategy {
     }
 
     public static class AppointmentSortByDate implements Comparator<Appointment> {
-
         @Override
         public int compare(Appointment o1, Appointment o2) {
             return Integer.compare(o1.getAppointmentTime().getHour(), o2.getAppointmentTime().getHour());
