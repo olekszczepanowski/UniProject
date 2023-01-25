@@ -15,20 +15,32 @@ public class WindowAppointmentByOpinion extends JPanel {
 
     WindowAppointmentByOpinion(String specialization) {
         JPanel test = new JPanel();
-        test.setLayout(new GridLayout(SortingController.SortByOpinion(specialization).size(), 1, -20, 0));
-        test.setPreferredSize(new Dimension(600, 1000));
         JScrollPane scrollFrame = new JScrollPane(test);
+        test.setLayout(new GridLayout(10, 1, 0, 0));
         test.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(600, 1000));
+        test.setPreferredSize(new Dimension(400, 1200));
+        scrollFrame.setPreferredSize(new Dimension(400, 350));
         this.add(scrollFrame);
         for (Doctor doctor : SortingController.SortByOpinion(specialization)) {
-            JButton ButtonData = new JButton("Dr. " + doctor.getFirstName() + " " + doctor.getSurname() + " " + doctor.getAverageOpinion());
-            test.add(ButtonData);
+            JPanel Paneldata = new JPanel();
+            JLabel LabelData = new JLabel("<html>Dr. " + doctor.getFirstName() + " " + doctor.getSurname() + "<br/> " + doctor.getAverageOpinion()+"<html>");
+            JButton ButtonData = new JButton("Book");
+            JPanel PanelLabel = new JPanel();
+            PanelLabel.setLayout(new BorderLayout());
+            PanelLabel.add(LabelData);
+            JPanel PanelButton = new JPanel();
+            PanelButton.add(ButtonData);
+            Paneldata.add(PanelLabel);
+            Paneldata.add(new JPanel());
+            Paneldata.add(PanelButton);
             ButtonData.addActionListener(e -> {
-                new Picker(doctor);
                 MainDialog.dispose();
+                new Picker(doctor);
             });
+            test.add(Paneldata);
         }
+        for(int i=0;i<10-SortingController.SortByOpinion(specialization).size();i++)
+            test.add(new JPanel());
         add(scrollFrame);
         if (SortingController.sortingByTime(PatientController.loggedPatient(), specialization).size() == 0) {
             JOptionPane.showMessageDialog(null, "No appointmenst avaliable", "",

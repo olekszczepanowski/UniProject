@@ -17,21 +17,32 @@ public class WindowAppointmentByTime extends JPanel {
 
     WindowAppointmentByTime(String specialization) {
         JPanel test = new JPanel();
-        test.setLayout(new GridLayout(SortingController.sortingByTime(PatientController.loggedPatient(), specialization).size(), 1, -20, 0));
-        test.setPreferredSize(new Dimension(600, 1000));
         JScrollPane scrollFrame = new JScrollPane(test);
+        test.setLayout(new GridLayout(20, 1, 0, 0));
         test.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(600, 1000));
+        test.setPreferredSize(new Dimension(400, 1200));
+        scrollFrame.setPreferredSize(new Dimension(400, 350));
         this.add(scrollFrame);
         for (Appointment appointment : SortingController.sortingByTime(PatientController.loggedPatient(), specialization)) {
-            JButton ButtonData = new JButton(String.valueOf(appointment.getAppointmentDate()) + " " + String.valueOf(appointment.getAppointmentTime()) + " "
-                    + "Dr" + String.valueOf(DoctorController.getDoctorByID(appointment.getDoctorID()).getFirstName()) + " " + DoctorController.getDoctorByID(appointment.getDoctorID()).getSurname());
-            test.add(ButtonData);
+            JLabel LabelData = new JLabel("<html>" + String.valueOf(appointment.getAppointmentDate()) + " " + String.valueOf(appointment.getAppointmentTime()) + "<br/> "
+                    + "Dr" + String.valueOf(DoctorController.getDoctorByID(appointment.getDoctorID()).getFirstName()) + " "
+                    + DoctorController.getDoctorByID(appointment.getDoctorID()).getSurname() + "<html>");
+            JButton ButtonData = new JButton("Book");
+            JPanel PanelLabel = new JPanel();
+            PanelLabel.setLayout(new BorderLayout());
+            PanelLabel.add(LabelData);
+            JPanel PanelButton = new JPanel();
+            PanelButton.add(ButtonData);
+            test.add(PanelLabel);
+            test.add(new JPanel());
+            test.add(PanelButton);
             ButtonData.addActionListener(e -> {
                 CalendarController.saveAppointment(appointment.getAppointmentDate().getDayOfMonth(), appointment.getAppointmentDate().getMonth().getValue(), appointment.getAppointmentDate().getYear(),
                         appointment.getAppointmentTime().getHour(), DoctorController.getDoctorByID(appointment.getDoctorID()));
             });
         }
+        for (int i = 0; i < 20 - SortingController.sortingByTime(PatientController.loggedPatient(), specialization).size(); i++)
+            test.add(new JPanel());
         add(scrollFrame);
         if (SortingController.sortingByTime(PatientController.loggedPatient(), specialization).size() == 0) {
             JOptionPane.showMessageDialog(null, "No appointmenst avaliable", "",

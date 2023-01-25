@@ -11,6 +11,7 @@ import Data.UserAccount;
 import GraphicInterface.Menu.PanelLoginPatient;
 import GraphicInterface.PanelPatient.PanelChoosingAppointmentByOpinion;
 
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -99,5 +100,12 @@ public class PatientController {
 
     public static List<Diagnosis> showDiagnoses() {
         return loggedPatient().getPatientCard().getDiagnoses();
+    }
+    public static GridBagConstraints GBC(int gridx,int gridy,int op){
+        GridBagConstraints C=new GridBagConstraints();
+        C.ipadx=op;
+        C.gridx=gridx;
+        C.gridy=gridy;
+        return C;
     }
 }

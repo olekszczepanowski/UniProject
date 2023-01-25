@@ -15,10 +15,10 @@ public class WindowOpinions extends JPanel {
     public WindowOpinions() {
         JPanel test = new JPanel();
         test.setLayout(new GridLayout(DoctorController.loggedDoctor().getOpinions().size(), 1, -20, 0));
-        test.setPreferredSize(new Dimension(200, 2000));
+        test.setPreferredSize(new Dimension(400, 2000));
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(200, 400));
+        scrollFrame.setPreferredSize(new Dimension(400, 600));
         this.add(scrollFrame);
         int i = 0;
         Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -28,7 +28,9 @@ public class WindowOpinions extends JPanel {
             panel.setLayout(new GridLayout(3, 1, 0, 0));
             panel.add(new JLabel("Opinion nr: " + i));
             panel.add(new JLabel("Value: " + opinion.getValue()));
-            panel.add(new JLabel("Text: " + opinion.getContent()));
+            String html = "<html><body style='width: %1spx'>%1s";
+            String text= "<html>"+opinion.getContent()+"</html>";
+            panel.add(new JLabel(String.format(html, 200, text)));
             panel.setBorder(blackline);
             test.add(panel);
         }
