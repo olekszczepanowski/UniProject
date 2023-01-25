@@ -16,19 +16,20 @@ public class WindowAppointmentByOpinion extends JPanel {
     WindowAppointmentByOpinion(String specialization) {
         JPanel test = new JPanel();
         JScrollPane scrollFrame = new JScrollPane(test);
-        test.setLayout(new GridLayout(10, 1, 0, 0));
+        test.setLayout(new GridLayout(20, 1, 0, 0));
         test.setAutoscrolls(true);
-        test.setPreferredSize(new Dimension(500, 1200));
-        scrollFrame.setPreferredSize(new Dimension(500, 350));
+        test.setPreferredSize(new Dimension(400, 1200));
+        scrollFrame.setPreferredSize(new Dimension(400, 350));
         this.add(scrollFrame);
         for (Doctor doctor : SortingController.SortByOpinion(specialization)) {
-            JPanel Paneldata = new JPanel();
             JLabel LabelData = new JLabel("<html>Dr " + doctor.getFirstName() + " " + doctor.getSurname() + "<br/> " + doctor.getAverageOpinion()+"<html>");
             JButton ButtonData = new JButton("Book");
+            JPanel PanelButton = new JPanel();
+            JPanel Paneldata = new JPanel();
+            Paneldata.setLayout(new GridLayout(1,3,0,0));
             JPanel PanelLabel = new JPanel();
             PanelLabel.setLayout(new BorderLayout());
             PanelLabel.add(LabelData);
-            JPanel PanelButton = new JPanel();
             PanelButton.add(ButtonData);
             Paneldata.add(PanelLabel);
             Paneldata.add(new JPanel());
@@ -39,7 +40,7 @@ public class WindowAppointmentByOpinion extends JPanel {
             });
             test.add(Paneldata);
         }
-        for(int i=0;i<10-SortingController.SortByOpinion(specialization).size();i++)
+        for(int i=0;i<20-SortingController.SortByOpinion(specialization).size();i++)
             test.add(new JPanel());
         add(scrollFrame);
         if (SortingController.sortingByTime(PatientController.loggedPatient(), specialization).size() == 0) {

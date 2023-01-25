@@ -16,10 +16,10 @@ public class WindowCheckMyAppointments extends JPanel {
     WindowCheckMyAppointments() {
         JPanel test = new JPanel();
         test.setLayout(new GridLayout(10, 1, -20, 0));
-        test.setPreferredSize(new Dimension(400, Math.min(200, PatientController.getAppointments(PatientController.loggedPatient()).size() * 50)));
+        test.setPreferredSize(new Dimension(300, 1000));
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(400, 200));
+        scrollFrame.setPreferredSize(new Dimension(300, 200));
         this.add(scrollFrame);
         Border blackline = BorderFactory.createLineBorder(Color.black);
         for (Appointment appointment : PatientController.getAppointments(PatientController.loggedPatient())) {

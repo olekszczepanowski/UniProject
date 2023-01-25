@@ -14,11 +14,11 @@ public class WindowAppointments extends JPanel {
 
     WindowAppointments() {
         JPanel test = new JPanel();
-        test.setLayout(new GridLayout(DoctorController.getAppointments(DoctorController.loggedDoctor()).size(), 1, -20, 0));
+        test.setLayout(new GridLayout(20, 1, -20, 0));
         test.setPreferredSize(new Dimension(200, 2000));
         JScrollPane scrollFrame = new JScrollPane(test);
         test.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(200, 400));
+        scrollFrame.setPreferredSize(new Dimension(200, 300));
         this.add(scrollFrame);
         int i = 0;
         Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -32,6 +32,8 @@ public class WindowAppointments extends JPanel {
             panel.setBorder(blackline);
             test.add(panel);
         }
+        for(int j=0;j<20-DoctorController.getAppointments(DoctorController.loggedDoctor()).size();j++)
+            test.add(new JPanel());
         add(scrollFrame);
         if (DoctorController.getAppointments(DoctorController.loggedDoctor()).size() == 0) {
             JOptionPane.showMessageDialog(null, "No appointments yet", "",

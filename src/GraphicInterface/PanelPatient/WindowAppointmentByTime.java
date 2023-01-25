@@ -28,12 +28,12 @@ public class WindowAppointmentByTime extends JPanel {
                     + "Dr" + String.valueOf(DoctorController.getDoctorByID(appointment.getDoctorID()).getFirstName()) + " "
                     + DoctorController.getDoctorByID(appointment.getDoctorID()).getSurname() + "<html>");
             JButton ButtonData = new JButton("Book");
+            JPanel PanelButton = new JPanel();
             JPanel PanelData=new JPanel();
-            PanelData.setLayout(new GridLayout(1,3,0,0));
             JPanel PanelLabel = new JPanel();
+            PanelData.setLayout(new GridLayout(1,3,0,0));
             PanelLabel.setLayout(new BorderLayout());
             PanelLabel.add(LabelData);
-            JPanel PanelButton = new JPanel();
             PanelButton.add(ButtonData);
             PanelData.add(PanelLabel);
             PanelData.add(new JPanel());
