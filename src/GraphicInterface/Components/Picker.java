@@ -54,7 +54,7 @@ public class Picker {
         confirm.addActionListener(e ->
 
         {
-            CalendarController.saveAppointment(Integer.parseInt(DatePicker.getDay()), DatePicker.getMonth(), DatePicker.getYear(), Integer.parseInt((String) Objects.requireNonNull(hour.getSelectedItem())), doctor);
+            CalendarController.saveAppointment(Integer.parseInt(DatePicker.getDay()), DatePicker.getMonth() + 1, DatePicker.getYear(), Integer.parseInt((String) Objects.requireNonNull(hour.getSelectedItem())), doctor);
             f.dispose();
         });
     }
